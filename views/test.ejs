@@ -1,0 +1,99 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="html.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+        integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+    div.insta img{
+        height: 150px;
+        width: 150px;
+        display: inline;
+    }
+    h1 {
+        display: inline;
+    }
+    #instaDiv {
+        width: 150px;
+        display: inline;
+    }
+    
+    </style>
+
+    <div class="insta" id="instaDiv">
+        <img src="/src/photos/logo.png" ">
+    </div>
+    <h1>Users</h1> <style> h1 {color:black;}</style>
+
+    <%for (let user of users) {%>
+
+    <div class="main">
+     <style>
+      .profile-image {
+        border-radius: 50%;
+        width: 7.7rem;
+        }
+     
+    .main {
+        max-width: 300px;
+        max-height: 200px;
+        background-color: aliceblue;
+        margin: 10px;
+        border-radius: 10%;
+        display: flex;
+        background-color: aliceblue;
+        }
+
+     .form {
+            justify-content: flex-end;
+            width: 150px;
+            align-items: flex-end;
+            text-align: right;
+        }
+        .login {
+            margin-top: 50px;
+        }
+         #user {
+                text-align: right;
+            }
+     input {
+            color: white;
+            background-color:black;
+            text-align: right;
+    }
+    </style>
+    <div class="profile-imageUser">
+        <img width=80 class="profile-image" src='/src/photos/<%=user.username%>/profile.jpeg' alt="">
+
+        <input id="upload" name="upload" type="file" multiple="multiple"
+        accept="image/gif, image/jpeg, image/png" />
+        
+        <div id="user">
+        <a href="/feed?user=<%= user.username%>"><%=user.username%></a>
+        </div>
+	</div>
+    
+    </div>
+</body>
+</html>
+<script> let socket = io.connect()
+const socket = io("http://localhost:3000");
+socket.on("connect", () => {
+socket.on("file", (imgUrl) => {
+    console.log(imgUrl);
+});
+console.log(socket.io)
+});
+</script>
+
+
+    <%}%>
+
+
+

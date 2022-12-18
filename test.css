@@ -1,0 +1,46 @@
+p {
+    max-width: 300px;
+    max-height: 200px;
+    background-color: whitesmoke;
+    text-align: right;
+    display: inline;
+    right:0px;
+    margin-right: 0px;
+}
+
+
+.profile-image {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.profile-imageUser {
+    border-radius: 50%;
+    width: 7.7rem;
+}
+
+.profile-image,
+.profile-user-settings,
+.profile-bio,
+.profile-stats {
+    float: none;
+    width: auto;
+    width: auto;
+    margin: 0;
+}
+
+.profile-image img {
+    width: 7.7rem;
+}
+
+.profile-image {
+    grid-row: 1 / -1;
+}
+.profile-image {
+    grid-row: 1 / 2;
+}
